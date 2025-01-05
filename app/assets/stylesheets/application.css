@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2rem;
+}
+
+nav {
+  justify-content: flex-end;
+  display: flex;
+  font-size: 0.875em;
+  gap: 0.5rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav a {
+  display: inline-block;
+}
+
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.notice {
+  color: green;
+}
+
+section.post {
+  display: inline-block;
+  gap: 5rem;
+  flex-direction: row;
+}
+
+section.post img {
+  border-radius: 8px;
+  max-width: 75%;
+}
+.img{
+  border-radius: 50px;
+  flex-basis: 50%;
+  max-width: 50%;
+
+
+}
+section.post_form {
+  max-width: 100%;
+
+}
+.signIn{
+  text-align: left;
+  margin-left: 20px;
+  background-color: lightblue;
+}

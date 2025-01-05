@@ -1,0 +1,30 @@
+<h1>Posts</h1>
+<div id="Demo" tabindex="Demo1">
+  <hi>
+    Name
+  </hi>
+  <input type="type" name="Name">
+</div>
+<div>
+<%= link_to "Login", new_session_path unless authenticated? %>
+
+<%= link_to "New Post", new_post_path, style: "margin-right: 50px;" %>
+</div>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post_path(post) %>
+      <br>
+      <% if post.featured_image.present? %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.featured_image, alt: "Featured image for #{post.title}", size: "800x400", style: "margin-right: 15px;" %>
+        <% end -%>
+      <% end %>
+
+      <% if authenticated? %>
+      <%= link_to "Edit", edit_post_path(post) %> |
+      <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end -%>
+    </li>
+  <% end %>
+</ul>

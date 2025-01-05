@@ -1,0 +1,35 @@
+<section class="post">
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+    <%= image_tag @post.featured_image if @post.featured_image.attached? %>
+<section class="post-info">
+<hr>
+<h2>Comments</h2>
+<% if authenticated? %>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= comment.content %>
+      <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+<h3>Add a Comment</h3>
+<%= form_with model: [@post, @comment], local: true do |form| %>
+  <p>
+    <%= form.text_area :content, placeholder: "Write a comment..." %>
+  </p>
+  <p>
+
+    <%= form.submit "Add Comment" %>
+
+    <%= link_to "Back", posts_path %>
+
+  </p>
+  <% end %>
+<% end %>
+</section>
+</section>
+
+

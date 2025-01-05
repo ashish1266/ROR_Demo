@@ -1,0 +1,22 @@
+<section class="post_form">
+<%= form_with model: @post, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Post Title" %><br>
+    <%= form.text_field :title, placeholder: "Enter title" %>
+  </div>
+
+  <div>
+    <%= form.label :body, "Post Body" %><br>
+    <%= form.text_area :body, placeholder: "Write your post content here..." %>
+  </div>
+
+  <div>
+    <%= form.label :featured_image, style: "display: block" %>
+    <%= form.file_field :featured_image, accept: "image/*" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Post" %>
+  </div>
+<% end %>
+</section>
