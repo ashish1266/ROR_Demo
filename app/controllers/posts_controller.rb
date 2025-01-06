@@ -49,8 +49,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
-    params.expect(post: [ :featured_image ])
+    params.require(:post).permit(:title, :body, :featured_image)
   end
 end
 
